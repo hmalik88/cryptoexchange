@@ -1,5 +1,68 @@
+.landing-page {
+  grid-template-columns: 100%;
+  grid-template-rows: 30% 70%;
+  display: grid;
+  width: 100%;
+  height: 100%;
+}
+
 .generated-address {
   width: 600px;
   height: 50px;
   border: 1px solid #000;
 }
+
+.landing-1 {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-2 {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: space-between;
+  flex-flow: column;
+}
+
+.login-box {
+  width: 400px;
+  height: 200px;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: column;
+}
+
+.login-header {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-body {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 80%;
+  width: 100%;
+  flex-flow: column;
+}
+
+.login-button {
+  width: 100px;
+  height: 50px;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

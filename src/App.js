@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import LandingPage from './containers/LandingPage';
 import AccountPage from './containers/AccountPage';
+import './scss/App.scss'
 
 class App extends React.Component {
   render() {

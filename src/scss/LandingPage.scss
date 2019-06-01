@@ -45,10 +45,15 @@
 }
 
 .generated-address {
-  width: 600px;
+  width: 650px;
   height: 50px;
   border: 1px solid #000;
   margin-bottom: 20px;
+  font-family: 'Unica One', cursive;
+  font-size: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .landing-1 {

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../scss/LandingPage.scss'
 import coin from '../assets/coin.svg'
+import CoinKey from 'coinkey';
 
 export default class LandingPage extends React.Component {
 
@@ -20,6 +21,19 @@ export default class LandingPage extends React.Component {
   handleLoginAddress = e => {
     this.setState({loginAddress: e.target.value});
   }
+
+  handleGenerate = () => {
+    let generateBox = document.querySelector('.generated-address');
+    let ck = new CoinKey.createRandom();
+    generateBox.innerText = ck.publicAddress;
+    this.checkIfAddressTaken(ck.publicAddress);
+  }
+
+  checkIfAddressTaken = address => {
+
+  }
+
+
 
   render() {
     return(
@@ -50,7 +64,7 @@ export default class LandingPage extends React.Component {
             <div className="generate-body">
               <div type="text" className="generated-address"></div>
               <div className="btn-set">
-                <div className="generate-btn"><div>Generate Address</div></div>
+                <div className="generate-btn" onClick={this.handleGenerate}><div>Generate Address</div></div>
                 <div className="claim-btn"><div>Claim Address</div></div>
               </div>
             </div>

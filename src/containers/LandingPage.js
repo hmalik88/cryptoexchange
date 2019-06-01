@@ -1,5 +1,6 @@
 import React from 'react';
 import '../scss/LandingPage.scss'
+import coin from '../assets/coin.svg'
 
 export default class LandingPage extends React.Component {
 
@@ -25,6 +26,7 @@ export default class LandingPage extends React.Component {
       <>
         <div className="landing-1">
           <div className="landing-title">CryptoXChange</div>
+          <img className="landing-coin" src={coin} alt="" />
         </div>
         <div className="landing-2">
           <div className="login-box">
@@ -43,11 +45,15 @@ export default class LandingPage extends React.Component {
           </div>
           <div className="generate-address">
             <div className="generate-header">
-              Generate An Address
+              <div>Generate An Address</div>
             </div>
-            <div type="text" className="generated-address"></div>
-            <div className="generate-btn">Generate Address</div>
-            <div className="claim-btn">Claim Address</div>
+            <div className="generate-body">
+              <div type="text" className="generated-address"></div>
+              <div className="btn-set">
+                <div className="generate-btn"><div>Generate Address</div></div>
+                <div className="claim-btn"><div>Claim Address</div></div>
+              </div>
+            </div>
           </div>
         </div>
       </>

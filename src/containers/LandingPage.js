@@ -29,7 +29,7 @@ export default class LandingPage extends React.Component {
         balance: 0
       }
     }
-    fetch('http://localhost:3000/v1/api/users', {
+    fetch('http://localhost:3000/api/v1/users', {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -37,8 +37,17 @@ export default class LandingPage extends React.Component {
       method: 'POST',
       body: JSON.stringify(user)
     })
-    .then(res => res.json())
-    .then(console.log);
+    .then(res => {
+      if (res.ok) {
+       return res.json()
+      } else {
+        throw new Error('Address already taken - generate a new address!')
+      }
+    })
+    .catch(error => {
+      alert(error);
+    })
+    .then(json => console.log(json))
   }
 
   render() {
@@ -71,7 +80,7 @@ export default class LandingPage extends React.Component {
               <div type="text" value={this.state.generatedAddress} className="generated-address">{this.state.generatedAddress}</div>
               <div className="btn-set">
                 <div className="generate-btn" onClick={this.handleGenerate}><div>Generate Address</div></div>
-                <div className="claim-btn"><div>Claim Address</div></div>
+                <div className="claim-btn" onClick={this.claimAddress}><div>Claim Address</div></div>
               </div>
             </div>
           </div>

@@ -5,35 +5,41 @@ import CoinKey from 'coinkey';
 
 export default class LandingPage extends React.Component {
 
-  //contructor - grab the root and give it a unique class to target the css with
-  //set state for loginAddress for the login input box
-
   constructor(props) {
     super(props);
     let root = document.querySelector('#root');
     root.className = '';
     root.classList.toggle('landing-page');
-    this.state = {loginAddress: ''};
+    this.state = {loginAddress: '', generatedAddress: ''};
   }
-
-  //change handler for login input
 
   handleLoginAddress = e => {
     this.setState({loginAddress: e.target.value});
   }
 
   handleGenerate = () => {
-    let generateBox = document.querySelector('.generated-address');
     let ck = new CoinKey.createRandom();
-    generateBox.innerText = ck.publicAddress;
-    this.checkIfAddressTaken(ck.publicAddress);
+    this.setState({generatedAddress: ck.publicAddress})
   }
 
-  checkIfAddressTaken = address => {
-
+  claimAddress = address => {
+    let user = {
+      user: {
+        address: this.state.generatedAddress,
+        balance: 0
+      }
+    }
+    fetch('http://localhost:3000/v1/api/users', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify(user)
+    })
+    .then(res => res.json())
+    .then(console.log);
   }
-
-
 
   render() {
     return(
@@ -54,7 +60,7 @@ export default class LandingPage extends React.Component {
                 MalikCoin Address
               </label>
               <input className="login-address" type="text" value={this.state.loginAddress} onChange={this.handleLoginAddress} />
-              <div className="login-button" onClick={this.handleLogin}><div>Sign In</div></div>
+              <div className="login-button" onClick={this.props.handleLogin}><div>Sign In</div></div>
             </div>
           </div>
           <div className="generate-address">
@@ -62,7 +68,7 @@ export default class LandingPage extends React.Component {
               <div>Generate An Address</div>
             </div>
             <div className="generate-body">
-              <div type="text" className="generated-address"></div>
+              <div type="text" value={this.state.generatedAddress} className="generated-address">{this.state.generatedAddress}</div>
               <div className="btn-set">
                 <div className="generate-btn" onClick={this.handleGenerate}><div>Generate Address</div></div>
                 <div className="claim-btn"><div>Claim Address</div></div>

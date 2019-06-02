@@ -21,6 +21,7 @@
   border: 1px solid #000;
   margin-top: 75px;
   background-color: #fff;
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.16);
 }
 
 .generate-header {
@@ -82,6 +83,7 @@
   justify-content: flex-start;
   align-items: center;
   flex-flow: column;
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.16);
 }
 
 .login-header {

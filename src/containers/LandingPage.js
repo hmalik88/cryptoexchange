@@ -69,7 +69,7 @@ export default class LandingPage extends React.Component {
                 MalikCoin Address
               </label>
               <input className="login-address" type="text" value={this.state.loginAddress} onChange={this.handleLoginAddress} />
-              <div className="login-button" onClick={this.props.handleLogin}><div>Sign In</div></div>
+              <div className="login-button" onClick={e => this.props.handleLogin(e, this.state.loginAddress)}><div>Sign In</div></div>
             </div>
           </div>
           <div className="generate-address">

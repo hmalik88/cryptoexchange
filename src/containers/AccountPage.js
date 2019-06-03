@@ -2,6 +2,7 @@ import React from 'react';
 import '../scss/AccountPage.scss'
 import malikCoin from '../assets/coin.svg'
 import CountUp from 'react-countup';
+import user from '../assets/user.svg'
 
 export default class AccountPage extends React.Component {
 
@@ -109,6 +110,8 @@ export default class AccountPage extends React.Component {
         <div className="nav-bar">
           <img className="malik-coin-logo" src={malikCoin} alt=" "/>
           <div className="malik-coin-address">MalikCoin Address: {this.props.user ? (this.props.user.address) : (null)}</div>
+          <img className="user" alt="" src={user} />
+          <div className="signed-in">Signed In</div>
           <div onClick={this.handleSignOut} className="sign-out">Sign Out</div>
         </div>
         <div className="section-1">

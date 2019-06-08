@@ -1,4 +1,5 @@
 import React from 'react';
+import Graph from '../components/Graph.js'
 import '../scss/AccountPage.scss'
 import malikCoin from '../assets/coin.svg'
 import CountUp from 'react-countup';
@@ -103,8 +104,48 @@ export default class AccountPage extends React.Component {
     }
   }
 
+  calculateInflows = () => {
+    let inFlows = {}
+    if (this.props.godTransfers && this.props.inFlows) {
+        inFlows['GOD'] = 0;
+      this.props.godTransfers.forEach(transfer => {
+        inFlows['GOD'] += 10
+      })
+      this.props.inFlows.forEach(inFlow => {
+        if (!inFlows[`${inFlow.address}`]) {
+          inFlows[`${inFlow.address}`] = 0
+          inFlows[`${inFlow.address}`] += inFlow.amount
+        } else {
+          inFlows[`${inFlow.address}`] += inFlow.amount
+        }
+      })
+      return inFlows;
+    }
+  }
+
+  calculateOutFlows = () => {
+    let outFlows = {}
+    if (this.props.transfers) {
+      this.props.transfers.forEach(transfer => {
+        if (!outFlows[`${transfer.recipient_id}`]) {
+          outFlows[`${transfer.recipient_id}`] = 0
+          outFlows[`${transfer.recipient_id}`] -= transfer.amount
+        } else {
+          outFlows[`${transfer.recipient_id}`] -= transfer.amount
+        }
+      })
+      return outFlows;
+    }
+  }
+
+  generateGraph = () => {
+    if (this.props.transfers) {
+      return <Graph inFlows={this.calculateInflows()} outFlows={this.calculateOutFlows()} />
+    }
+    return null;
+  }
+
   render() {
-    console.log(this.props.transfers)
     return(
       <>
         <div className="nav-bar">
@@ -144,7 +185,9 @@ export default class AccountPage extends React.Component {
               <button className="generate-coin-btn" onClick={this.generateMalikCoin}>Generate 10 MalikCoin</button>
         </div>
         <div className="section-2">
-          <div className="d3-graph"></div>
+          <div className="graph">
+            {this.generateGraph()}
+          </div>
         </div>
       </>
       )

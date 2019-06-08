@@ -8,7 +8,7 @@ class App extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = {user: '', transfers: ''}
+    this.state = {user: '', transfers: '', godTransfers: '', inFlows: ''}
   }
 
   getCurrentUser = () => {
@@ -23,7 +23,7 @@ class App extends React.Component {
       }
     })
     .then(res => res.json())
-    .then(res => this.setState({user: res.user, transfers: res.transfers}))
+    .then(res => this.setState({user: res.user, transfers: res.transfers, godTransfers: res.god_transfers, inFlows: res.inflows}))
     } else {
       this.props.history.push("/");
     }
@@ -71,7 +71,7 @@ class App extends React.Component {
     return(
       <>
         <Switch>
-          <Route exact path="/account" render={(props) => <AccountPage user={this.state.user} transfers={this.state.transfers} getCurrentUser={this.getCurrentUser} {...props} />}  />
+          <Route exact path="/account" render={(props) => <AccountPage user={this.state.user} transfers={this.state.transfers} godTransfers={this.state.godTransfers} inFlows={this.state.inFlows} getCurrentUser={this.getCurrentUser} {...props} />}  />
           <Route exact path="/" render={ (props) => <LandingPage handleLogin={this.handleLogin} {...props} />} />
         </Switch>
       </>

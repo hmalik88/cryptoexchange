@@ -106,7 +106,7 @@ export default class AccountPage extends React.Component {
 
   calculateInflows = () => {
     let inFlows = {}
-    if (this.props.godTransfers && this.props.inFlows) {
+    if (this.props.godTransfers || this.props.inFlows) {
         inFlows['GOD'] = 0;
       this.props.godTransfers.forEach(transfer => {
         inFlows['GOD'] += 10
@@ -140,7 +140,7 @@ export default class AccountPage extends React.Component {
 
   generateGraph = () => {
     if (this.props.transfers) {
-      return <Graph inFlows={this.calculateInflows()} outFlows={this.calculateOutFlows()} />
+      return <Graph inFlows={this.calculateInflows()} outFlows={this.calculateOutFlows()} getCurrentUser={this.props.getCurrentUser}/>
     }
     return null;
   }

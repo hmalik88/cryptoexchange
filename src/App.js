@@ -11,7 +11,7 @@ class App extends React.Component {
     this.state = {user: '', transfers: '', godTransfers: '', inFlows: ''}
   }
 
-  getCurrentUser = () => {
+  getCurrentUser = async () => {
     let token = localStorage.getItem("token")
     if (token !== null ) {
       fetch('http://localhost:3000/api/v1/current_user', {

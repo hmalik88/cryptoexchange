@@ -9,8 +9,10 @@ A pet project to practice some Data Visualization. Generate some MalikCoin throu
 
 In order to set up an account, you need to:
 
-**Step 1** Hit generate address. 
+**Step 1** Hit generate address.
+
 **Step 2** Click on claim address.
+
 **Step 3** Use that address to login.
 
 In order to recreate the project, you can follow the below steps:

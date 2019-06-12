@@ -1,4 +1,6 @@
-CryptoXChange - a pet project to practice some Data Visualization. Generate some MalikCoin through a faucet and send those to other addresses! You can generate a random hash as an address and 'claim' that account. Then you can use that account to send/receive MalikCoin. There also is a visualization illustrating the cashflows in/out of the accounts you've interacted with.
+# CryptoXChange
+
+A pet project to practice some Data Visualization. Generate some MalikCoin through a faucet and send those to other addresses! You can generate a random hash as an address and 'claim' that account. Then you can use that account to send/receive MalikCoin. There also is a visualization illustrating the cashflows in/out of the accounts you've interacted with.
 
 Step 1 - Clone down the repository
 

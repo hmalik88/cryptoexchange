@@ -4,7 +4,14 @@
 
 A pet project to practice some Data Visualization. Generate some MalikCoin through a faucet and send those to other addresses! You can generate a random hash as an address and 'claim' that account. Then you can use that account to send/receive MalikCoin. There also is a visualization illustrating the cashflows in/out of the accounts you've interacted with.
 
-In order to set up an account, you need to hit generate address then click on claim address, you can now use that address to login.
+
+**CREATING AN ACCOUNT**
+
+In order to set up an account, you need to:
+
+**Step 1** Hit generate address. 
+**Step 2** Click on claim address.
+**Step 3** Use that address to login.
 
 In order to recreate the project, you can follow the below steps:
 

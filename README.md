@@ -24,7 +24,7 @@ In order to recreate the project, you can follow the below steps:
 
 **Step 3** - Run npm start
 
-**This project uses a ruby back end for simulating a cryptocurrency token. The link for this back end is:** https://github.com/hmalik88/cryptoexchange-backend
+*This project uses a ruby back end for simulating a cryptocurrency token. The link for this back end is:* https://github.com/hmalik88/cryptoexchange-backend
 
 Please check the following video for a demo of the project!
 
